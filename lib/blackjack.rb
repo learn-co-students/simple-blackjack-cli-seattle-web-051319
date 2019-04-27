@@ -31,10 +31,15 @@ end
 
 def hit?(number)
   prompt_user
-  get_user_input
-  if get_user_input == 'h'
-    number + deal_card
-  elsif get_user_input == 's'
+  input = get_user_input
+  until input == 's' || input == 'h'
+    invalid_command
+    prompt_user
+    input = get_user_input
+  end
+  if input == 'h'
+    number += deal_card
+  elsif input == 's'
     number
   else
     invalid_command
@@ -52,5 +57,11 @@ end
 #####################################################
 
 def runner
-  # code runner here
+  welcome
+  hand = initial_round
+  until hand > 21 do
+    hand = hit?(hand)
+    display_card_total(hand)
+  end
+ puts "Sorry, you hit #{hand}. Thanks for playing!"
 end

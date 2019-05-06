@@ -31,16 +31,12 @@ def initial_round
 end
 
 def hit?(x)
+  card_total = x
   prompt_user
    if get_user_input == 'h'
-      deal_card + x
-      return
-    else
-      return display_card_total(x)
-    if get_user_input != 'h' || 's'
-       return invalid_command
-       end
+      card_total = deal_card + card_total
     end
+      return card_total
 end
 
 def invalid_command
@@ -51,6 +47,14 @@ end
 # get every test to pass before coding runner below #
 #####################################################
 
-def runner
-  # code runner here
+def runner(card_total, x)
+  welcome
+  initial_round
+  hit?
+  display_card_total
+    card_total = x
+    until card_total == 21
+      puts hit? + display_card_total
+    end
+  return end_game
 end

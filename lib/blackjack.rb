@@ -30,15 +30,17 @@ def initial_round
 
 end
 
-def hit?(total)
+def hit?(x)
   prompt_user
   get_user_input
-  if get_user_input = 'h'
-    deal_card +=
-  elsif get_user_input = 's'
-    puts "No more cards"
-  else
-    invalid_command
+   if get_user_input == 'h'
+      deal_card + x
+    else
+      return display_card_total(x)
+    if get_user_input != 'h' || 's'
+       return invalid_command
+       end
+    end
 end
 
 def invalid_command

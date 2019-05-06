@@ -47,14 +47,15 @@ end
 # get every test to pass before coding runner below #
 #####################################################
 
-def runner(card_total, x)
+def runner(card_total)
+  until card_total == 21
+  puts
   welcome
   initial_round
   hit?
   display_card_total
-    card_total = x
-    until card_total == 21
-      puts hit? + display_card_total
-    end
-  return end_game
+  hit?
+  display_card_total
+  end_game
+  counter +=
 end

@@ -48,8 +48,6 @@ end
 #####################################################
 
 def runner(card_total)
-  until card_total == 21
-  puts
   welcome
   initial_round
   hit?
@@ -57,5 +55,4 @@ def runner(card_total)
   hit?
   display_card_total
   end_game
-  counter +=
 end
